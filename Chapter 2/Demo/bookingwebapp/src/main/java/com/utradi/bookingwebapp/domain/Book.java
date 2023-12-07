@@ -9,11 +9,11 @@ import java.util.Set;
 public class Book {
     @Id//need to be sure this is jakarta.persistence package, not spring data annotation
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private  Long id;
-    private  String title;
-    private  String isbn;
+    private Long id;
+    private String title;
+    private String isbn;
 
-    @ManyToMany(mappedBy = "books")
+    @ManyToMany
     @JoinTable(name = "author_book",
             joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "author_id"))
