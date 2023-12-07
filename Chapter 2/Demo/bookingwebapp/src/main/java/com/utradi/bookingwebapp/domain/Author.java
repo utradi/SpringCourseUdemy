@@ -2,6 +2,7 @@ package com.utradi.bookingwebapp.domain;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -9,12 +10,12 @@ import java.util.Set;
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private  Long id;
-    private  String firstName;
-    private  String lastName;
+    private Long id;
+    private String firstName;
+    private String lastName;
 
     @ManyToMany(mappedBy = "authors")
-    private  Set<Book> books;
+    private Set<Book> books = new HashSet<>();
 
     public Set<Book> getBooks() {
         return books;
